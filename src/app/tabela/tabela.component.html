@@ -1,0 +1,30 @@
+<h2>Tabela</h2>
+<table class="tabela-alunos">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Nota 1</th>
+      <th>Nota 2</th>
+      <th>Média</th>
+      <th>Condição</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let aluno of alunos">
+      <td>{{ aluno.nome }}</td>
+      <td *ngIf="!emEdicao">{{ aluno.nota1 }}</td>
+      <td *ngIf="emEdicao && aluno === alunoEditando"><input type="number" [(ngModel)]="aluno.nota1"></td>
+      <td *ngIf="!emEdicao">{{ aluno.nota2 }}</td>
+      <td *ngIf="emEdicao && aluno === alunoEditando"><input type="number" [(ngModel)]="aluno.nota2"></td>
+      <td>{{ calcularMedia(aluno.nota1, aluno.nota2) }}</td>
+      <td>{{ verificarCondicao(calcularMedia(aluno.nota1, aluno.nota2)) }}</td>
+      <td>
+        <button *ngIf="!emEdicao" (click)="editarAluno(aluno)" style="background-color: green; color: white;">Editar</button>
+        <button *ngIf="emEdicao && aluno === alunoEditando" (click)="salvarEdicao()" style="background-color: green; color: white;">Salvar</button>
+        <button *ngIf="emEdicao && aluno === alunoEditando" (click)="cancelarEdicao()">Cancelar</button>
+        <button (click)="excluirAluno(aluno)" style="background-color: green; color: white;">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

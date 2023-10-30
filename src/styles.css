@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+.tabela-alunos {
+    margin-top: 10px; /* Adiciona espaço acima da tabela */
+    border-collapse: collapse; /* Combina as bordas das células */
+  }
+  
+  .tabela-alunos th, .tabela-alunos td {
+    padding: 10px; /* Adiciona espaço dentro das células */
+    border: 1px solid #ccc; /* Adiciona bordas às células */
+  }
+  
+  .tabela-alunos tr {
+    margin-bottom: 8px; /* Adiciona espaço entre as linhas */
+  }
+  
